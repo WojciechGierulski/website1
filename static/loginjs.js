@@ -1,18 +1,3 @@
-var checkbox = document.getElementById('flexCheckDefault');
-var input = document.getElementById("password_input");
-
-checkbox.addEventListener('change', (event) => 
-{
-  if (event.target.checked) 
-  {
-    input.type = "text";
-  } 
-  else 
-  {
-    input.type="password";
-  }
-})
-
 function validate()
 {
 	var name = document.getElementById("login_input").value;

@@ -1,9 +1,10 @@
 import flask
 from flask import Flask, render_template, redirect, session, url_for, flash, get_flashed_messages
-from db_verf import Db
+import db_verf
 
 app = Flask(__name__)
-app.secret_key = "joiewf93jofnerwjb/3##"
+app.secret_key = "1234"
+
 
 def render_with_dict(template):
     if "user" in session:
@@ -11,6 +12,7 @@ def render_with_dict(template):
     else:
         user1 = False
     return render_template(template, user=user1)
+
 
 def pop_session():
     session.pop("user", None)
@@ -34,6 +36,7 @@ def login():
         session["password"] = flask.request.form["password"]
         return redirect(url_for("home_page"))
 
+
 @app.route("/logout")
 def logout():
     if "user" in session:
@@ -44,9 +47,15 @@ def logout():
         flash("You are not logged in")
         return redirect(url_for("login"))
 
-@app.route("/create_account")
+
+@app.route("/create_account", methods=["GET", "POST"])
 def create_account():
-    return render_template("create.html")
+    if flask.request.method == "GET":
+        return render_template("create.html")
+    elif flask.request.method == "POST":
+        login = flask.request.form["login"]
+        password = flask.request.form["password"]
+        c_password = flask.request.form["c_password"]
 
 
 if __name__ == "__main__":

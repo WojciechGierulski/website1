@@ -1,10 +1,4 @@
-import sqlalchemy
-
-class Db:
-    @staticmethod
-    def authenticate_username(username):
-        return True
-
-    @staticmethod
-    def authenticate_password(password):
-        return True
+import sqlite3
+import click
+from flask import current_app, g
+from flask.cli import with_appcontext
