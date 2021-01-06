@@ -42,9 +42,9 @@
 			  	<li class="nav-item nav-link"><a class="nav-link btn btn-outline-secondary wd" href="{{ url_for('create_account') }}" role="button"> Sign Up </a></li>
 			  	{% else %}
 
-			  	<li class="nav-item"><a class="nav-link active" href="#"><i class="fa fa-user-circle-o" style="font-size:36px"></i></a>
-
 			  	<li class="nav-item"><a class="nav-link active hello_label"> Hello {{user}}! </a></li>
+
+			  	<li class="nav-item"><a class="nav-link active" href="{{ url_for('user_page') }}"><i class="fa fa-user-circle-o" style="font-size:36px"></i></a>
 
 			  	<li class="nav-item nav-link"><a class="btn btn-danger wd" href="{{ url_for('logout') }}" role="button">Log Out</a></li>
 			  {% endif %}
@@ -55,13 +55,18 @@
 
 
 	{% with messages = get_flashed_messages() %}
+
 		{% for msg in messages %}
+
 			<div class="alert alert-primary alert-dismissible fade show" role="alert">
   				{{ msg }}
   				<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
 			</div>
+
 		{% endfor %}
+
 	{% endwith %}
+
 
 	{% block content %}{% endblock %}
 
