@@ -1,0 +1,12 @@
+img {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  padding-right: 0.5rem;
+  padding-left: 0.5rem;
+}
+
+.helper {
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+}

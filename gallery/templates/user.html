@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block title %} User page {% endblock %}
+{% block links %}
+<link rel="stylesheet" type="text/css" href="{{ url_for('gallery.static', filename='css/gallery.css') }}">
+{% endblock %}
+
+{% block content %}
+
+<div class="d-flex justify-content-center label_div">
+	<h1> Hello {{dict["user"]}}!</h1>
+</div>
+
+
+<div class="d-flex justify-content-center button_div">
+	<a href="{{ url_for('gallery.images') }}">
+		<button type="button" class="btn btn-primary">Browse your gallery!</button>
+	</a>
+</div>
+
+<div class="d-flex justify-content-center button_div">
+		<button type="button" class="btn btn-primary">See someone else's gallery!</button>
+</div>
+
+{% endblock %}
+
+{% block scripts %}
+
+<script type="text/javascript" src="{{ url_for('gallery.static', filename='js/gallery.js') }}"></script>
+
+{% endblock %}

@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block title %} Images {% endblock %}
+
+{% block links %}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.7.1/min/dropzone.min.css">
+<link rel="stylesheet" type="text/css" href="{{ url_for('gallery.static', filename='css/images.css') }}">
+{% endblock %}
+
+
+{% block content %}
+<div class="container">
+    <div class="row imagetiles">
+        {% for image_path in dict['images'] %}
+            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 text-center">
+                <span class="helper"></span><img class="img-fluid mx-auto" src="{{url_for('gallery.static', filename=image_path)}}">
+            </div>
+        {% endfor %}
+    </div>
+</div>
+
+    <div class="d-flex justify-content-center">
+        <h1>Upload new image!</h1>
+    </div>
+
+    <div class="d-flex justify-content-center">
+        <form action="{{ url_for('gallery.images') }}" class="dropzone">
+        </form>
+    </div>
+
+{% endblock %}
+
+{% block scripts %}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.7.1/min/dropzone.min.js"></script>
+{% endblock %}

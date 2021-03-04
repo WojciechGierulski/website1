@@ -13,7 +13,7 @@
 
 	<nav class="navbar navbar-expand-lg navbar-light bg-light" id="navigation_bar">
 	  <div class="container-fluid">
-	    <a class="navbar-brand" href="{{ url_for('home_page') }}">Super Shop</a>
+	    <a class="navbar-brand" href="{{ url_for('home_page') }}">Super Gallery</a>
 	    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
 	      <span class="navbar-toggler-icon"></span>
 	    </button>
@@ -36,17 +36,17 @@
 	    </div>
 	    <ul class="navbar-nav navbar-right">
 
-	    		{% if not user %}
-			  	<li class="nav-item nav-link"><a class="btn btn-outline-primary wd" href="{{ url_for('login') }}" role="button"> Log In </a></li>
+	    		{% if 'user' not in dict %}
+			  	<li class="nav-item nav-link"><a class="btn btn-outline-primary wd" href="{{ url_for('login.login') }}" role="button"> Log In </a></li>
 
-			  	<li class="nav-item nav-link"><a class="nav-link btn btn-outline-secondary wd" href="{{ url_for('create_account') }}" role="button"> Sign Up </a></li>
+			  	<li class="nav-item nav-link"><a class="nav-link btn btn-outline-secondary wd" href="{{ url_for('login.create_account') }}" role="button"> Sign Up </a></li>
 			  	{% else %}
 
-			  	<li class="nav-item"><a class="nav-link active hello_label"> Hello {{user}}! </a></li>
+			  	<li class="nav-item"><a class="nav-link active hello_label"> Hello {{dict['user']}}! </a></li>
 
-			  	<li class="nav-item"><a class="nav-link active" href="{{ url_for('user_page') }}"><i class="fa fa-user-circle-o" style="font-size:36px"></i></a>
+			  	<li class="nav-item user_icon"><a class="nav-link active" href="{{ url_for('gallery.user_page') }}"><i class="fa fa-user-circle-o" style="font-size:36px"></i></a>
 
-			  	<li class="nav-item nav-link"><a class="btn btn-danger wd" href="{{ url_for('logout') }}" role="button">Log Out</a></li>
+			  	<li class="nav-item nav-link"><a class="btn btn-danger wd" href="{{ url_for('login.logout') }}" role="button">Log Out</a></li>
 			  {% endif %}
 
 	    </ul>

@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+
+{% block title %} Log In {% endblock %}
+
+{% block links %}
+<link rel="stylesheet" type="text/css" href="{{ url_for('login.static', filename='css/login_style.css') }}">
+{% endblock %}
+
+{% block content %} 
+
+	<div style="margin-bottom: 5%;"></div>
+
+	<form action="#" method="post" id="form1">
+	<div class="container">
+		
+		<div class="row mx-auto">
+			<div class="input-group input-group-sm mb-3">
+		  		<span class="input-group-text" id="inputGroup-sizing-sm">Login</span>
+		  		<input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" name="login" id="login_input">
+			</div>
+		</div>
+
+		<div class="row mx-auto">
+			<div class="input-group input-group-sm mb-3">
+			  <span class="input-group-text" id="inputGroup-sizing-sm">Password</span>
+			  <input type="password" class="password_input form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" name="password" id="password_input">
+			</div>
+		</div>
+
+		<div class="row mx-auto">
+			<div class="form-check" style="padding-left: 2.2rem;">
+  				<input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+  				<label class="form-check-label" for="flexCheckDefault">
+    				Display password
+  				</label>
+			</div>
+		</div>
+
+		<div class="row mx-auto login_buttonn">
+			<button type="button" id="submit_bt" class="btn btn-success">Log In!</button>
+		</div>
+	
+	</form>
+
+	<div class="row mx-auto login_buttonn"><a class="btn btn-secondary" href="{{ url_for('login.create_account') }}" role="button">Don't have an account?</a>
+		</div>
+
+	</div>
+
+{% endblock %}
+
+{% block scripts %}
+
+<script type="text/javascript" src="{{ url_for('login.static', filename='js/loginjs.js') }}"></script>
+<script type="text/javascript" src="{{ url_for('login.static', filename='js/display_password.js') }}"></script>
+<script type="text/javascript" src="{{ url_for('login.static', filename='js/enter_submit.js') }}"></script>
+
+{% endblock %}

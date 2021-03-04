@@ -1,15 +1,8 @@
-
 .alert.alert-primary
 {
 	margin-right: auto;
 	margin-left: auto;
 	width: 30%;
-}
-
-a
-{
-	text-decoration: none;
-	color: black;
 }
 
 .input-group-text
@@ -26,4 +19,8 @@ a
 .wd
 {
 	width: 6rem;
+}
+a:hover i
+{
+	color: #1147b2;
 }
