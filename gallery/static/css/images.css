@@ -10,3 +10,8 @@ img {
     height: 100%;
     vertical-align: middle;
 }
+.caption
+{
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
