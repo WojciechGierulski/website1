@@ -20,7 +20,7 @@ class Database:
         cur.execute(query)
         return cur.fetchall()
 
-    def add_any_record(self, query):
+    def execute_query(self, query):
         success = False
         try:
             with sqlite3.connect(database_path) as conn:
@@ -28,7 +28,8 @@ class Database:
                 cur.execute(query)
                 conn.commit()
                 success = True
-        except:
+        except Exception as e:
+            print(e)
             conn.rollback()
             success = False
         finally:

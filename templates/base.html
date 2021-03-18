@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, user-scalable=no" charset="utf-8">
 	<title>{% block title %}{% endblock %}</title>
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -11,45 +11,29 @@
 <body>
 
 
-	<nav class="navbar navbar-expand-lg navbar-light bg-light" id="navigation_bar">
+	<nav class="navbar navbar-expand-md navbar-light bg-light" id="navigation_bar">
 	  <div class="container-fluid">
 	    <a class="navbar-brand" href="{{ url_for('home_page') }}">Super Gallery</a>
 	    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
 	      <span class="navbar-toggler-icon"></span>
 	    </button>
 	    <div class="collapse navbar-collapse" id="navbarNavDropdown">
-	      <ul class="navbar-nav">
-	        <li class="nav-item">
-	          <a class="nav-link active" aria-current="page" href="#">1</a>
-	        </li>
-	        <li class="nav-item dropdown">
-	          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-	            Dropdown link
-	          </a>
-	          <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-	            <li><a class="dropdown-item" href="#">Action</a></li>
-	            <li><a class="dropdown-item" href="#">Another action</a></li>
-	            <li><a class="dropdown-item" href="#">Something else here</a></li>
-	          </ul>
-	        </li>
-	      </ul>
-	    </div>
-	    <ul class="navbar-nav navbar-right">
-
+	      <ul class="nav navbar-nav ms-auto">
 	    		{% if 'user' not in dict %}
 			  	<li class="nav-item nav-link"><a class="btn btn-outline-primary wd" href="{{ url_for('login.login') }}" role="button"> Log In </a></li>
 
-			  	<li class="nav-item nav-link"><a class="nav-link btn btn-outline-secondary wd" href="{{ url_for('login.create_account') }}" role="button"> Sign Up </a></li>
+			  	<li class="nav-item nav-link"><a class="btn btn-outline-secondary" href="{{ url_for('login.create_account') }}" role="button"> Sign Up </a></li>
 			  	{% else %}
 
-			  	<li class="nav-item"><a class="nav-link active hello_label"> Hello {{dict['user']}}! </a></li>
+			  	<li class="nav-item nav-link"><a class="nav-link active"> Hello {{dict['user']}}! </a></li>
 
-			  	<li class="nav-item user_icon"><a class="nav-link active" href="{{ url_for('gallery.user_page') }}"><i class="fa fa-user-circle-o" style="font-size:36px"></i></a>
+			  	<li class="nav-item nav-link"><a class="active" href="{{ url_for('gallery.user_page') }}"><i class="fa fa-user-circle-o" style="font-size:36px"></i></a>
 
 			  	<li class="nav-item nav-link"><a class="btn btn-danger wd" href="{{ url_for('login.logout') }}" role="button">Log Out</a></li>
-			  {% endif %}
+			    {% endif %}
 
-	    </ul>
+	      </ul>
+		</div>
 		</div>
 	</nav>
 
@@ -58,7 +42,7 @@
 
 		{% for msg in messages %}
 
-			<div class="alert alert-primary alert-dismissible fade show" role="alert">
+			<div class="alert alert-primary alert-dismissible fade show col-lg-4 col-md-4 col-sm-6 col-xs-6" role="alert">
   				{{ msg }}
   				<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
 			</div>

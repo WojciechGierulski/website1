@@ -2,7 +2,6 @@
 {
 	margin-right: auto;
 	margin-left: auto;
-	width: 30%;
 }
 
 .input-group-text
@@ -10,15 +9,9 @@
 	height: 110%;
 	text-align: center;
 }
-
-.hello_label
+ul li a
 {
-	text-align: center;
-}
-
-.wd
-{
-	width: 6rem;
+    color: black;
 }
 a:hover i
 {
